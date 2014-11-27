@@ -68,7 +68,7 @@ class Feed
         @parser.fetch_and_parse(@url, user_agent: "Stringer")
       end
 
-    unless raw_feed == 304
+    unless raw_feed.nil? or raw_feed == 304 or raw_feed == 0 or raw_feed == 500 or raw_feed == 200 or raw_feed == 404
       stories = []
 
       @title = raw_feed.title
