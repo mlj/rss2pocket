@@ -1,4 +1,4 @@
-require 'feedzirra'
+require 'feedjira'
 require 'yaml'
 
 class Cache
@@ -34,7 +34,7 @@ class Feed
   def initialize(url, cache)
     @state = cache[url]
     @url = url
-    @parser = Feedzirra::Feed
+    @parser = Feedjira::Feed
   end
 
   MIN_YEAR = 1970
