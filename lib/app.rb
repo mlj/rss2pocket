@@ -24,5 +24,5 @@ while true
     pocket_client.add url: url
   end
 
-  sleep 60 * 60 * 3
+  sleep 60 * 60 * 24
 end

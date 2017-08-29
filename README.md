@@ -23,7 +23,7 @@ Start the app:
 foreman start
 ```
 
-The polling interval is currently hard-coded to 3 hours.
+The polling interval is hard-coded to one day.
 
 ## License
 
