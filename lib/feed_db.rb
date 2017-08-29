@@ -56,6 +56,10 @@ class Feed
     @state[:latest_url]
   end
 
+  def tags
+    @state[:tags]
+  end
+
   def title
     @title
   end
@@ -84,7 +88,7 @@ class Feed
       end
 
       stories.each do |story|
-        yield story
+        yield story, tags
       end
 
       update_last_fetched(raw_feed.last_modified)
