@@ -1,5 +1,5 @@
 require_relative 'feed_db'
-require 'pocket'
+require 'pocket-ruby'
 
 module PocketFetcher
   def self.run(&block)
