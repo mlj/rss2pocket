@@ -1,4 +1,5 @@
 require 'feedjira'
+require 'httparty'
 require 'yaml'
 
 class Cache
@@ -65,12 +66,11 @@ class Feed
   end
 
   def fetch
-    raw_feed =
-      if last_fetched
-        @parser.fetch_and_parse(@url, user_agent: "Stringer", if_modified_since: last_fetched)
-      else
-        @parser.fetch_and_parse(@url, user_agent: "Stringer")
-      end
+    opts = {}
+    opts['if-modified-since'] = last_fetched if last_fetched
+
+    xml = HTTParty.get(@url, opts).body
+    raw_feed= Feedjira.parse(xml)
 
     unless raw_feed.nil? or raw_feed == 304 or raw_feed == 0 or raw_feed == 500 or raw_feed == 200 or raw_feed == 404
       stories = []

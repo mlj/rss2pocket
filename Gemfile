@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'feedjira', '~> 1.1.0'
+gem 'feedjira'
 gem 'foreman'
-gem 'rake'
+gem 'httparty'
 gem 'pocket-ruby'
+gem 'rake'
